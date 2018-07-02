@@ -21,22 +21,22 @@ class Board extends React.Component {
   }
 
   render() {
+    let cols_rows = [[], [], []];
+    for(let i=0; i<3; i++) {
+      for(let ii=0; ii<3; ii++) {
+        cols_rows[i].push(this.renderSquare((i*3) + ii));
+      }
+    }
     return (
       <div>
         <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
+          {cols_rows[0]}
         </div>
         <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
+          {cols_rows[1]}
         </div>
         <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
+          {cols_rows[2]}
         </div>
       </div>
     );
