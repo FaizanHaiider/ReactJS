@@ -47,31 +47,36 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      history: [
+      boardHistory: [
         {
           squares: Array(9).fill(null)
         }
       ],
+      locationHistory: [],
       stepNumber: 0,
       xIsNext: true
     };
   }
 
   handleClick(i) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[history.length - 1];
+    const boardHistory = this.state.boardHistory.slice(0, this.state.stepNumber + 1);
+    const locationHistory = this.state.locationHistory.slice();
+    const current = boardHistory[boardHistory.length - 1];
     const squares = current.squares.slice();
+
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
     squares[i] = this.state.xIsNext ? "X" : "O";
+    locationHistory[this.state.stepNumber+1] = i;
     this.setState({
-      history: history.concat([
+      boardHistory: boardHistory.concat([
         {
           squares: squares
         }
       ]),
-      stepNumber: history.length,
+      locationHistory: locationHistory,
+      stepNumber: boardHistory.length,
       xIsNext: !this.state.xIsNext
     });
   }
@@ -84,14 +89,18 @@ class Game extends React.Component {
   }
 
   render() {
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
+    const boardHistory = this.state.boardHistory;
+    const locationHistory = this.state.locationHistory;
+    const current = boardHistory[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
-    const moves = history.map((step, move) => {
+    const moves = boardHistory.map((step, move) => {
+      let row = parseInt((locationHistory[move]) / 3);
+      let col = parseInt((locationHistory[move]) % 3);  
+      let row_col_str = ' ('+row+', '+col+')';
       const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+        'Go to move #' + move + row_col_str:
+        'Go to game start (row, col)';
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
