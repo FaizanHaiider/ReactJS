@@ -95,8 +95,8 @@ class Game extends React.Component {
     const winner = calculateWinner(current.squares);
 
     const moves = boardHistory.map((step, move) => {
-      let row = parseInt((locationHistory[move]) / 3);
-      let col = parseInt((locationHistory[move]) % 3);  
+      let row = parseInt((locationHistory[move]) / 3, 10);
+      let col = parseInt((locationHistory[move]) % 3, 10);  
       let row_col_str = ' ('+row+', '+col+')';
       const desc = move ?
         'Go to move #' + move + row_col_str:
@@ -111,6 +111,8 @@ class Game extends React.Component {
     let status;
     if (winner) {
       status = "Winner: " + winner;
+    } else if(this.state.stepNumber === 9) {
+      status = 'No Winner, TIE game'
     } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
