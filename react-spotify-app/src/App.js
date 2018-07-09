@@ -14,70 +14,68 @@ class SearchBar extends Component {
 
 class Playlist extends Component {
   render() {
+    const currentPlaylists = this.props.playlists.slice();
+    const playlist_map = currentPlaylists.map((playlist, iter) => {
+      const pStr = playlist.playlistName + ' | Songs: ' + playlist.playlistSongs.length;
+      return (
+        <p key={iter}> {pStr} </p>
+      )
+    })
     return(
       <div>
-        {/* add playlist name */}
-        {/* preview songs */}
+        {playlist_map}
       </div>
     );
   }
 }
 
-
 class Header extends Component {
   render() {
-    const userName = this.props.name;
     return (
-      <div className="App App-header">
-        <h2> {userName}'s Profile </h2>
+      <div className='App App-header'>
+        <h2> {this.props.userName}'s Profile </h2>
       </div>
     );
   }
 }
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       userName: 'tmpName',
       playlists: [
         {
-          playlist: {
-            playlistId: 0,
-            playlistName: 'tmpPlaylistName',
-            playlistImgs: [],
-          }        
-        }
+          playlistNum: 0,
+          playlistName: 'tmpPlaylistName',
+          playlistSongs: ['yoho', 'yolo']
+        }        
       ]
     };
   }
 
-  updateState() {
+  handleClick() {
     const currentPlaylist = this.state.playlists.slice();
-    const newPlaylist = {
-      playlistId: 1,
-      playlistName: 'newList',
-      playlistImgs: [],
-    }
 
     this.setState({
       playlists: currentPlaylist.concat([
         {
-          playlist: newPlaylist
+          playlistId: 1,
+          playlistName: 'newList',
+          playlistSongs: ['yolo', 'yoho']
+
         }
       ])
-    })
-    console.log(this.state)
+    }, () => {console.log(this.state)});
   }
 
   render() {
     return (
       <div className='content'>
-        <Header name = {this.state.userName} />
+        <Header userName = {this.state.userName} />
         <SearchBar/>
-        <button onClick={this.updateState} />
-        <p> {console.log(this.state)} </p>
-        <p> {this.state.playlists.playlistName} </p>
+        <button onClick = {() => this.handleClick()}> Click Me</button>
+        <Playlist playlists = {this.state.playlists}/>
       </div>
     );
   }
