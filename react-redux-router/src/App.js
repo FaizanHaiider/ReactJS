@@ -1,21 +1,41 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {Route, Switch} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+import MenuBar from './components/MenuBar';
+import Home from './components/Home';
+import { getProducts } from './actions';
 
 class App extends Component {
+  static propTypes = {
+    isFetching: PropTypes.bool.isRequired,
+    products: PropTypes.array
+  }
+
+  componentDidMount() {
+    const {dispatch} = this.props;
+    dispatch(getProducts());
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+    console.log(this.props)
+    const {isFetching, products} = this.props.state.products;
+    const productsLen = isFetching ? 0 : products.length;
+
+    return(
+      <div>
+        <MenuBar />
+        <Home productsLen={productsLen} />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          {/* <Route path='/:id' component={Product} /> */}
+        </Switch>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({state});
+
+export default connect(mapStateToProps)(App);

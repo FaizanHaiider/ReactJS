@@ -1,0 +1,10 @@
+[{"id":1,"prod_name":"Lotus","prod_travelpath":[{"datetime":"8/21/2017","longitude":-99.6684882,"latitude":19.7899891}]},
+{"id":2,"prod_name":"Volvo","prod_travelpath":[{"datetime":"6/12/2018","longitude":106.951372,"latitude":36.188112}]},
+{"id":3,"prod_name":"Plymouth","prod_travelpath":[{"datetime":"2/5/2018","longitude":9.6323203,"latitude":45.7022525}]},
+{"id":4,"prod_name":"Buick","prod_travelpath":[{"datetime":"10/11/2017","longitude":112.7271303,"latitude":-7.7629501},{"datetime":"2/4/2018","longitude":40.7666934,"latitude":45.6592536},{"datetime":"6/20/2018","longitude":-90.6703399,"latitude":14.6333181}]},
+{"id":5,"prod_name":"Ford","prod_travelpath":[{"datetime":"6/5/2018","longitude":22.79536,"latitude":41.43999},{"datetime":"9/21/2017","longitude":-72.6729522,"latitude":41.7644599}]},
+{"id":6,"prod_name":"Volvo","prod_travelpath":[{"datetime":"3/8/2018","longitude":25.4566978,"latitude":50.8323221}]},
+{"id":7,"prod_name":"Ford","prod_travelpath":[{"datetime":"9/6/2017","longitude":-122.1210872,"latitude":37.4071955},{"datetime":"5/28/2018","longitude":47.8443304,"latitude":41.424441},{"datetime":"10/27/2017","longitude":-8.2760021,"latitude":40.9937134}]},
+{"id":8,"prod_name":"Suzuki","prod_travelpath":[{"datetime":"6/28/2018","longitude":37.5917237,"latitude":57.3529283},{"datetime":"9/17/2017","longitude":-52.7455935,"latitude":-17.3474338}]},
+{"id":9,"prod_name":"Ford","prod_travelpath":[{"datetime":"9/27/2017","longitude":-57.2310521,"latitude":-34.3042878},{"datetime":"11/18/2017","longitude":-5.4519,"latitude":35.6206812}]},
+{"id":10,"prod_name":"Ford","prod_travelpath":[{"datetime":"4/19/2018","longitude":135.322998,"latitude":54.708952},{"datetime":"11/15/2017","longitude":-43.8616129,"latitude":-16.7159055},{"datetime":"4/7/2018","longitude":121.3967768,"latitude":13.8345621},{"datetime":"9/13/2017","longitude":127.3847266,"latitude":0.7988772}]}]
