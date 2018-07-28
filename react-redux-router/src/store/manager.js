@@ -1,15 +1,13 @@
+import {combineReducers} from 'redux';
 import { 
     REQUEST_PRODUCTS, 
     RECEIVE_PRODUCTS 
 } from '../actions';
-import {combineReducers} from 'redux';
-
 
 /*
 {
-    route: url ? 
-    products_len: number
-    products: array of product objects
+    isFetching: bool (to determine if new content is being fetched)
+    products: [objects] (products array)
 }
 */
 const initialState = {
