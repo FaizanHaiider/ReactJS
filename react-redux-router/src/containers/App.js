@@ -1,13 +1,21 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import { Container } from 'semantic-ui-react';
 
+import {getProducts} from '../actions'
 import MenuBar from '../components/MenuBar';
 import Home from '../components/Home';
-import { getProducts } from '../actions';
+import ItemsTable from '../components/ItemsTable';
+
+function style() {
+  return {
+      container: {marginTop: '5em'}
+  }
+}
 
 class App extends Component {
-  
+
   componentDidMount() {
     const {getProducts} = this.props;
     getProducts();
@@ -15,12 +23,15 @@ class App extends Component {
 
   render() {
     const {isFetching, products} = this.props.payload;
-    const productsLen = isFetching ? 0 : products.length;
-
+    const styles = style();
     return(
       <div>
         <MenuBar products={products}/>
-        <Home productsLen={productsLen} />
+
+        <Container text textAlign='center' style={styles.container}>
+          <Home />
+          <ItemsTable items={products} type='products'/>
+        </Container>
       </div>
     );
   }
