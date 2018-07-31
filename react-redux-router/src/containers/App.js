@@ -39,7 +39,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getProducts: () => dispatch(getProducts)
+  getProducts: () => dispatch(getProducts())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
