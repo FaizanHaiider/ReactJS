@@ -7,9 +7,10 @@ import Home from '../components/Home';
 import { getProducts } from '../actions';
 
 class App extends Component {
+  
   componentDidMount() {
-    const {dispatch} = this.props;
-    dispatch(getProducts());
+    const {getProducts} = this.props;
+    getProducts();
   }
 
   render() {
@@ -26,7 +27,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  getProducts: PropTypes.func.isRequired,
   isFetching: PropTypes.bool,
   products: PropTypes.array
 }
@@ -37,4 +38,8 @@ const mapStateToProps = state => {
   })
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  getProducts: () => dispatch(getProducts)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

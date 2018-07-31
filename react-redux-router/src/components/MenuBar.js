@@ -1,8 +1,8 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 import {Container, Menu, Dropdown} from 'semantic-ui-react';
 
 const MenuBar = ({products}) => (
-    <div>
     <Menu fixed='top' inverted>
         <Container>
             <Menu.Item name='Home' />
@@ -10,7 +10,7 @@ const MenuBar = ({products}) => (
                 <Dropdown.Menu>
                     {
                         products.map((product) => (
-                            <Dropdown.Item key={product.id}>
+                            <Dropdown.Item key={product.id} as={NavLink} to={`/${product.id}`} >
                                 {product.prod_name}
                             </Dropdown.Item>
                         ))
@@ -19,7 +19,6 @@ const MenuBar = ({products}) => (
             </Dropdown>
         </Container>
     </Menu>
-    </div>
 )
 
 export default MenuBar;
