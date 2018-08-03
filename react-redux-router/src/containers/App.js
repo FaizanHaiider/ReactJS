@@ -39,8 +39,8 @@ class App extends Component {
 
 App.propTypes = {
   getProducts: PropTypes.func.isRequired,
-  isFetching: PropTypes.bool,
-  products: PropTypes.array
+  isFetching: PropTypes.bool.isRequired,
+  products: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => {

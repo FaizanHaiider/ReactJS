@@ -9,7 +9,7 @@ function style() {
     }
 }
 
-const productTable = ['Product ID', 'Product Name', 'Last Updated', 'Edit'];
+const productTable = ['Product ID', 'Product Name', 'Last Updated', ' '];
 const travelTable = ['Date (time)', 'Location'];
 
 const ItemsTable = ({items, type}) => {
@@ -40,7 +40,7 @@ const ItemsTable = ({items, type}) => {
                                 <Table.Cell>{product.id}</Table.Cell>
                                 <Table.Cell>{product.name}</Table.Cell>
                                 <Table.Cell>{product.travelPath[0].datetime}</Table.Cell>
-                                <Table.Cell><Link to={`/${product.id}`}><Icon name='pencil'/></Link></Table.Cell>
+                                <Table.Cell><Link to={`/${product.id}`}>Details</Link></Table.Cell>
                             </Table.Row>
                         ))
                         : 

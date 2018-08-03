@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
+import {ConnectedRouter} from 'connected-react-router';
 import {Switch, Route} from 'react-router-dom';
 
 import store, {history} from './store';
@@ -12,6 +12,8 @@ ReactDOM.render(
         <ConnectedRouter history={history}>
             <Switch>
                 <Route exact path='/' component={App}/>
+                { /* <Route path='/:id' component={Product}*/ }
+                { /* 404 */ }
             </Switch>
         </ConnectedRouter>
     </Provider>,

@@ -4,12 +4,7 @@ import {
     RECEIVE_PRODUCTS 
 } from '../actions';
 
-/*
-{
-    isFetching: bool (to determine if new content is being fetched)
-    products: [objects] (products array)
-}
-*/
+
 const initialState = {
     isFetching: true,
     products: []
@@ -30,7 +25,6 @@ const products = (state = initialState, action) => {
             }
         default:
             return state;
-
     }
 }
 
